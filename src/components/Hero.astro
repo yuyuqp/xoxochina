@@ -1,0 +1,275 @@
+---
+---
+
+<section class="hero">
+  <div class="hero__bg">
+    <img
+      src="https://placehold.co/1920x1080/0d1b2a/c9a66b?text=xoxochina"
+      alt="Luxury bathroom with premium fixtures"
+      class="hero__img"
+      width="1920"
+      height="1080"
+    />
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="container hero__content">
+    <div class="hero__text">
+      <span class="section-label">Premium Bathroom Fixtures</span>
+      <h1 class="hero__title">Elevate Your<br />Bathroom Space</h1>
+      <p class="hero__desc">
+        Factory-direct faucets, sinks, shower systems, and more. Exceptional
+        quality at wholesale and retail pricing — serving contractors, retailers,
+        and homeowners nationwide.
+      </p>
+      <div class="hero__ctas">
+        <a href="#categories" class="btn btn-primary btn-lg">Shop Now</a>
+        <a href="#wholesale" class="btn btn-outline-light btn-lg">Wholesale Inquiry</a>
+      </div>
+      <div class="hero__trust">
+        <span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          4.9 / 5 Rating
+        </span>
+        <span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          10,000+ Customers
+        </span>
+        <span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          Est. 2010
+        </span>
+      </div>
+    </div>
+
+    <div class="hero__card-wrap">
+      <div class="hero__card">
+        <img
+          src="https://placehold.co/340x360/f5f0e8/9d7c3a?text=Brushed+Gold+Faucet"
+          alt="Brushed Gold Series Faucet"
+          width="340"
+          height="360"
+        />
+        <div class="hero__card-info">
+          <span class="hero__card-badge">New Arrival</span>
+          <p class="hero__card-name">Brushed Gold Series</p>
+          <p class="hero__card-sub">Faucets &amp; Fixtures</p>
+          <p class="hero__card-price">From <strong>$189</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <a href="#stats" class="hero__scroll" aria-label="Scroll down">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      rgba(13, 27, 42, 0.92) 0%,
+      rgba(13, 27, 42, 0.75) 55%,
+      rgba(13, 27, 42, 0.35) 100%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    padding-block: 6rem;
+  }
+
+  .hero__text {
+    max-width: 580px;
+  }
+
+  .hero__title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.75rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__desc {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero__ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .hero__trust {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__trust span {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .hero__trust svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* Product card */
+  .hero__card-wrap {
+    flex-shrink: 0;
+  }
+
+  .hero__card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    width: 250px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero__card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+  }
+
+  .hero__card-info {
+    padding: 1.25rem;
+  }
+
+  .hero__card-badge {
+    display: inline-block;
+    background: var(--color-accent-light);
+    color: var(--color-accent-dark);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.625rem;
+  }
+
+  .hero__card-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .hero__card-sub {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero__card-price {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero__card-price strong {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* Scroll caret */
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    animation: bounce 2s infinite;
+    transition: border-color var(--transition), color var(--transition);
+  }
+
+  .hero__scroll:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  @media (max-width: 900px) {
+    .hero__content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__card-wrap {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero__ctas {
+      flex-direction: column;
+    }
+
+    .hero__ctas .btn {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .hero__trust {
+      gap: 1rem;
+    }
+  }
+</style>

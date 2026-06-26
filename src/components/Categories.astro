@@ -1,0 +1,172 @@
+---
+const categories = [
+  {
+    name: 'Faucets',
+    count: '1,200+',
+    img: 'https://placehold.co/600x450/f0ece4/7a6240?text=Faucets',
+    href: '#',
+  },
+  {
+    name: 'Bathroom Sinks',
+    count: '800+',
+    img: 'https://placehold.co/600x450/e8ece0/4a6835?text=Bathroom+Sinks',
+    href: '#',
+  },
+  {
+    name: 'Shower Systems',
+    count: '650+',
+    img: 'https://placehold.co/600x450/e0e8ec/3a5f70?text=Shower+Systems',
+    href: '#',
+  },
+  {
+    name: 'Bathtubs',
+    count: '400+',
+    img: 'https://placehold.co/600x450/ece0ea/703060?text=Bathtubs',
+    href: '#',
+  },
+  {
+    name: 'Toilets & Bidets',
+    count: '320+',
+    img: 'https://placehold.co/600x450/e0ece8/2d6050?text=Toilets+%26+Bidets',
+    href: '#',
+  },
+  {
+    name: 'Accessories',
+    count: '2,500+',
+    img: 'https://placehold.co/600x450/eceae0/706030?text=Accessories',
+    href: '#',
+  },
+];
+---
+
+<section class="categories" id="categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Catalog</span>
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-desc">
+        Browse our extensive selection of premium bathroom fixtures across all major product lines.
+      </p>
+    </div>
+
+    <div class="categories__grid">
+      {categories.map((cat) => (
+        <a href={cat.href} class="cat-card">
+          <div class="cat-card__img-wrap">
+            <img src={cat.img} alt={cat.name} width="600" height="450" loading="lazy" />
+            <div class="cat-card__overlay"></div>
+          </div>
+          <div class="cat-card__body">
+            <div class="cat-card__info">
+              <h3 class="cat-card__name">{cat.name}</h3>
+              <span class="cat-card__count">{cat.count} products</span>
+            </div>
+            <span class="cat-card__arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .categories {
+    padding: 5rem 0;
+    background: var(--color-bg);
+  }
+
+  .categories__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cat-card {
+    display: block;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-bg-soft);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .cat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cat-card__img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .cat-card__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+
+  .cat-card:hover .cat-card__img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .cat-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13, 27, 42, 0.45) 0%, transparent 60%);
+  }
+
+  .cat-card__body {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .cat-card__info {
+    flex: 1;
+  }
+
+  .cat-card__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.15rem;
+  }
+
+  .cat-card__count {
+    font-size: 0.775rem;
+    color: var(--color-text-muted);
+  }
+
+  .cat-card__arrow {
+    color: var(--color-accent);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity var(--transition), transform var(--transition);
+    flex-shrink: 0;
+  }
+
+  .cat-card:hover .cat-card__arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 900px) {
+    .categories__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .categories__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
