@@ -1,0 +1,205 @@
+---
+---
+
+<header class="header" id="site-header">
+  <div class="container header__inner">
+
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="xoxochina home">
+      <span class="logo-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="13" cy="13" r="12" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 13C7 9.5 10 7 13 7C16 7 19 9.5 19 13C19 16.5 16 19 13 19C10 19 7 16.5 7 13Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M10 13H16M13 10V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="logo-text">xoxo<strong>china</strong></span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#categories">Products</a></li>
+        <li><a href="#featured">Collections</a></li>
+        <li><a href="#wholesale">Wholesale</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header__actions">
+      <button class="icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+      <a href="#wholesale" class="btn btn-primary header__cta">Get a Quote</a>
+      <button class="menu-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .header.scrolled {
+    box-shadow: var(--shadow-md);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 72px;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .logo-icon {
+    color: var(--color-accent);
+    display: flex;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+  }
+
+  .logo-text strong {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .header__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header__nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.125rem;
+  }
+
+  .header__nav a {
+    display: block;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition);
+  }
+
+  .header__nav a:hover {
+    color: var(--color-primary);
+  }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition);
+    display: flex;
+  }
+
+  .icon-btn:hover {
+    color: var(--color-primary);
+  }
+
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: var(--color-primary);
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 900px) {
+    .header__nav {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      padding: 0.5rem 0 1rem;
+    }
+
+    .header__nav.open {
+      display: block;
+    }
+
+    .header__nav ul {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .header__nav a {
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+      border-radius: 0;
+    }
+
+    .menu-btn {
+      display: flex;
+    }
+
+    .header__cta {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const menuBtn = document.getElementById('menu-toggle')!;
+  const nav = document.getElementById('main-nav')!;
+
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>
