@@ -1,18 +1,18 @@
 ---
+
 ---
 
 <header class="header" id="site-header">
   <div class="container header__inner">
-
     <!-- Logo -->
     <a href="/" class="header__logo" aria-label="xoxochina home">
-      <span class="logo-icon">
-        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13" cy="13" r="12" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M7 13C7 9.5 10 7 13 7C16 7 19 9.5 19 13C19 16.5 16 19 13 19C10 19 7 16.5 7 13Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M10 13H16M13 10V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
+      <img
+        src="/logo-inline-120x56.png"
+        alt="xoxochina logo"
+        width="120"
+        height="56"
+        class="logo-inline"
+      />
       <span class="logo-text">xoxo<strong>china</strong></span>
     </a>
 
@@ -30,21 +30,42 @@
     <!-- Actions -->
     <div class="header__actions">
       <button class="icon-btn" aria-label="Search">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <path d="m21 21-4.35-4.35"/>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
         </svg>
       </button>
       <a href="#wholesale" class="btn btn-primary header__cta">Get a Quote</a>
-      <button class="menu-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
+      <button
+        class="menu-btn"
+        id="menu-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
     </div>
-
   </div>
 </header>
 
@@ -73,21 +94,26 @@
   .header__logo {
     display: flex;
     align-items: center;
-    gap: 0.625rem;
+    gap: 0.55rem;
     flex-shrink: 0;
     color: var(--color-primary);
   }
 
-  .logo-icon {
-    color: var(--color-accent);
-    display: flex;
+  .logo-inline {
+    width: clamp(102px, 11vw, 120px);
+    height: auto;
+    max-height: 36px;
+    object-fit: contain;
+    display: block;
   }
 
   .logo-text {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-family: var(--font-serif);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     color: var(--color-primary);
+    line-height: 1;
+    transform: translateY(1px);
   }
 
   .logo-text strong {
@@ -190,16 +216,16 @@
 </style>
 
 <script>
-  const header = document.getElementById('site-header')!;
-  const menuBtn = document.getElementById('menu-toggle')!;
-  const nav = document.getElementById('main-nav')!;
+  const header = document.getElementById("site-header")!;
+  const menuBtn = document.getElementById("menu-toggle")!;
+  const nav = document.getElementById("main-nav")!;
 
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 10);
   });
 
-  menuBtn.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  menuBtn.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
   });
 </script>
