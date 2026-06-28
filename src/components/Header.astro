@@ -1,13 +1,13 @@
 ---
-
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <header class="header" id="site-header">
   <div class="container header__inner">
     <!-- Logo -->
-    <a href="/" class="header__logo" aria-label="xoxochina home">
+    <a href={baseUrl} class="header__logo" aria-label="xoxochina home">
       <img
-        src="/logo-inline-120x56.png"
+        src={`${baseUrl}logo-inline-120x56.png`}
         alt="xoxochina logo"
         width="120"
         height="56"

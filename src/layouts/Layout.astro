@@ -8,8 +8,10 @@ interface Props {
 
 const {
     title = "xoxochina – Premium Bathroom Fixtures",
-    description = "Retail & wholesale bathroom fixtures. Faucets, sinks, shower heads, bathtubs and more. Factory-direct collections for retailers and contractors.",
+    description = "Premium bathroom fixture collections for brand presentation, project sourcing, and wholesale partner inquiries.",
 } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -21,10 +23,10 @@ const {
         <link
             rel="icon"
             type="image/avif"
-            href="/favicon.avif"
+            href={`${baseUrl}favicon.avif`}
             sizes="120x120"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={`${baseUrl}favicon.ico`} />
         <title>{title}</title>
     </head>
     <body>

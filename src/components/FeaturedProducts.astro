@@ -1,86 +1,11 @@
 ---
-const products = [
-  {
-    id: 1,
-    name: 'Cascata Waterfall Faucet',
-    category: 'Faucets',
-    rating: 4.8,
-    reviews: 124,
-    badge: 'Bestseller',
-    badgeColor: 'gold',
-    img: 'https://placehold.co/400x400/f5f0e8/9d7c3a?text=Waterfall+Faucet',
-  },
-  {
-    id: 2,
-    name: 'Marble Vessel Sink',
-    category: 'Bathroom Sinks',
-    rating: 4.9,
-    reviews: 87,
-    badge: 'New',
-    badgeColor: 'blue',
-    img: 'https://placehold.co/400x400/f0f0f5/4a5a70?text=Vessel+Sink',
-  },
-  {
-    id: 3,
-    name: 'Rainfall Shower Head',
-    category: 'Shower Systems',
-    rating: 4.7,
-    reviews: 203,
-    badge: 'Sale',
-    badgeColor: 'red',
-    img: 'https://placehold.co/400x400/e8f0f5/3a5060?text=Shower+Head',
-  },
-  {
-    id: 4,
-    name: 'Freestanding Bathtub',
-    category: 'Bathtubs',
-    rating: 5.0,
-    reviews: 42,
-    badge: 'Premium',
-    badgeColor: 'dark',
-    img: 'https://placehold.co/400x400/f5f0f5/604870?text=Freestanding+Tub',
-  },
-  {
-    id: 5,
-    name: 'Matte Black Towel Bar Set',
-    category: 'Accessories',
-    rating: 4.6,
-    reviews: 156,
-    badge: 'Sale',
-    badgeColor: 'red',
-    img: 'https://placehold.co/400x400/f0f0f0/383838?text=Towel+Bar+Set',
-  },
-  {
-    id: 6,
-    name: 'Smart Dual-Flush Toilet',
-    category: 'Toilets & Bidets',
-    rating: 4.8,
-    reviews: 65,
-    badge: 'New',
-    badgeColor: 'blue',
-    img: 'https://placehold.co/400x400/f0f5f0/406040?text=Smart+Toilet',
-  },
-  {
-    id: 7,
-    name: 'Brushed Gold Mixer Tap',
-    category: 'Faucets',
-    rating: 4.9,
-    reviews: 98,
-    badge: 'Bestseller',
-    badgeColor: 'gold',
-    img: 'https://placehold.co/400x400/f5f2e8/8b7040?text=Mixer+Tap',
-  },
-  {
-    id: 8,
-    name: 'Frameless Shower Enclosure',
-    category: 'Shower Systems',
-    rating: 4.7,
-    reviews: 33,
-    badge: null,
-    badgeColor: null,
-    img: 'https://placehold.co/400x400/e8f0f8/38607a?text=Shower+Enclosure',
-  },
-];
+import { productMedia } from '../data/productMedia';
+
+const products = productMedia.map((product, index) => ({
+  ...product,
+  rating: [4.9, 4.8, 4.8, 5, 4.7, 4.6, 4.8, 4.7][index] ?? 4.8,
+  reviews: [124, 97, 88, 42, 73, 61, 56, 69][index] ?? 48,
+}));
 ---
 
 <section class="featured" id="featured">
@@ -90,30 +15,25 @@ const products = [
         <span class="section-label">Handpicked Selection</span>
         <h2 class="section-title">Bestselling Products</h2>
       </div>
-      <a href="#" class="btn btn-outline">View All Products</a>
+      <a href="#wholesale" class="btn btn-outline">Get a Quote</a>
     </div>
 
     <div class="products__grid">
       {products.map((p) => (
         <article class="product-card">
-          <a href="#" class="product-card__img-link" aria-label={`View ${p.name}`}>
+          <a href="#wholesale" class="product-card__img-link" aria-label={`Request a quote for ${p.title}`}>
             {p.badge && (
               <span class={`product-card__badge badge--${p.badgeColor}`}>{p.badge}</span>
             )}
-            <img src={p.img} alt={p.name} width="400" height="400" loading="lazy" />
+            <img src={p.imageUrl} alt={p.title} width="350" height="350" loading="lazy" referrerpolicy="no-referrer" />
             <div class="product-card__actions">
-              <button class="product-action-btn" aria-label="Quick view">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-              <button class="product-action-btn" aria-label="Add to wishlist">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
+              <span class="product-card__quote">Get quote</span>
             </div>
           </a>
           <div class="product-card__body">
             <p class="product-card__cat">{p.category}</p>
             <h3 class="product-card__name">
-              <a href="#">{p.name}</a>
+              <a href="#wholesale">{p.title}</a>
             </h3>
             <div class="product-card__rating">
               <span class="stars" aria-label={`${p.rating} out of 5`}>
@@ -179,7 +99,9 @@ const products = [
   .product-card__img-link img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 1rem;
+    background: #f8f8f8;
     transition: transform 0.4s ease;
   }
 
@@ -223,21 +145,25 @@ const products = [
     transform: translateX(0);
   }
 
-  .product-action-btn {
+  .product-card__quote {
     background: #fff;
     border: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
+    min-height: 34px;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 0.75rem;
     box-shadow: var(--shadow-sm);
-    color: var(--color-text-muted);
+    color: var(--color-primary);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     transition: background var(--transition), color var(--transition);
   }
 
-  .product-action-btn:hover {
+  .product-card__img-link:hover .product-card__quote {
     background: var(--color-primary);
     color: #fff;
   }
@@ -261,6 +187,7 @@ const products = [
     color: var(--color-primary);
     margin-bottom: 0.5rem;
     line-height: 1.35;
+    min-height: 2.55em;
   }
 
   .product-card__name a:hover {
