@@ -1,6 +1,6 @@
 ---
 const perks = [
-  'Tiered volume pricing',
+  'Tiered volume support',
   'Dedicated account manager',
   'Early access to new products',
   'Flexible payment terms',
@@ -10,7 +10,7 @@ const perks = [
 
 const wstats = [
   { num: '500+',  label: 'Active Wholesale Partners' },
-  { num: '25%',   label: 'Average Wholesale Savings' },
+  { num: '25%',   label: 'Average Wholesale Efficiency' },
   { num: '48h',   label: 'Quote Turnaround Time' },
   { num: 'MOQ 10', label: 'Minimum Order Quantity' },
 ];
@@ -18,12 +18,11 @@ const wstats = [
 
 <section class="wholesale" id="wholesale">
   <div class="container wholesale__inner">
-
     <div class="wholesale__text">
       <span class="section-label">For Businesses</span>
       <h2 class="section-title light">Partner With xoxochina</h2>
       <p class="wholesale__desc">
-        Whether you're a plumbing contractor, interior designer, or retail store owner — our wholesale program gives you access to competitive pricing, a massive product catalog, and dedicated support.
+        Whether you're a plumbing contractor, interior designer, or retail store owner, our wholesale program gives you access to a massive product catalog and dedicated support.
       </p>
       <ul class="wholesale__perks">
         {perks.map((perk) => (
@@ -49,7 +48,6 @@ const wstats = [
         </div>
       ))}
     </div>
-
   </div>
 </section>
 
@@ -112,7 +110,6 @@ const wstats = [
     flex-wrap: wrap;
   }
 
-  /* Stats grid */
   .wholesale__stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
